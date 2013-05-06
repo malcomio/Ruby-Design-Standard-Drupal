@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Ruby Design Standard Installation feature.
+ */
+
+include_once('ruby_standard.features.inc');
