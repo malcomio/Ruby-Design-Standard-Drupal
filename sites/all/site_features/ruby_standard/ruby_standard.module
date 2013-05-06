@@ -5,3 +5,27 @@
  */
 
 include_once('ruby_standard.features.inc');
+
+/**
+ * Implements hook_block_info().
+ *
+ * Set up a standard block to show site credits.
+ */
+function ruby_standard_block_info() {
+  $blocks['ruby_credits'] = array(
+    'info' => t('Ruby Design Credits'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Display a block with a copyright notice, the site name and a link to Ruby Design.
+ */
+function ruby_standard_block_view($delta = '') {
+  $block['subject'] = '';
+  $ruby_link = l('Ruby Design', 'http://www.rubydesign.co.uk');
+  $block['content'] = '&copy; ' . variable_get('site_name', '') . ' ' . date('Y') . ' | Site by ' . $ruby_link;
+  return $block;
+}
